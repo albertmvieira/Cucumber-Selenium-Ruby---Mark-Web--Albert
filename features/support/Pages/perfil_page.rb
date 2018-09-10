@@ -2,6 +2,8 @@ require_relative 'sections'
 
 class PerfilPage < SitePrism::Page
 
+    set_url '/user_settings/profile' #definida URL para usar como se fosse usuario acessando direto do favoritos
+
     #criado seção (recurso do siteprism) para navbar pois ela não é uma página e esta acessível a todos
     # nome da sessão :nav (reperesentado pela classe Navbar (passando o id master da do menu navbar))
     section :nav, Navbar, '#navbar'

@@ -5,6 +5,7 @@ class Adicionar < SitePrism::Section
     element :input_data, 'input[name=dueDate]'
     element :input_tags, '.bootstrap-tagsinput input'
     element :salvar, '#form-submit-button'
+    element :mensagem, '.alert-warn'
 
     #metodo recebendo tarefa (possui chave e valor)
     def nova(tarefa, tags)
@@ -31,6 +32,40 @@ class TarefasPage < SitePrism::Page
     #section criada para a subpagina de Adicionar tarefa
     section :adicionar, Adicionar, '#add-task-view'
 
+    element :confirma_modal, 'button[data-bb-handler=success]'
+    element :cancela_modal, 'button[data-bb-handler=danger]'
+
+    element :conteudo_pagina, '#tasks-view'
+
     element :titulo, '.header-title h3'
     element :botao_novo, '#insert-button'
+    element :campo_busca, 'input[name=search]'
+    element :botao_busca, '#search-button'
+
+    element :table_body, 'table tbody'
+
+    #criado "elements" para receber um conjunto de informações (array) da tabela
+    elements :itens, 'table tbody tr'
+
+
+    #metodo para buscar (pesquisar) uma tarefa criada
+    def busca(titulo)
+        campo_busca.set titulo
+        botao_busca.click
+    end
+
+    #metodo para remover a primeira tarefa
+    def apaga_primeiro_item
+        @tasks.itens.first.find('#delete-button').click
+    end
+
+    #metodo para remover tarefa por nome
+    def apagar_por_titulo(titulo)
+        itens.each do |linha|
+            if linha.text.include?(titulo)
+                linha.find('#delete-button').click
+            end
+        end
+    end
+
 end

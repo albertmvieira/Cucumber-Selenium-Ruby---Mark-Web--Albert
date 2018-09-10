@@ -27,11 +27,11 @@ Funcionalidade: Cadastrar tarefas
             | titulo | Ler livro de Go lang     |
             | data   | 01/04/2018               |
         E eu quero taguear esta tarefa com:
-            | tag     |
-            | Go      |
-            | livro   |
-            | leitura |
-            | estudar |
+            | tag       |
+            | go        |
+            | livro     |
+            | leitura   |
+            | hardcore  |
         Mas eu já cadastrei esta tarefa e não tinha percebido
         Quando faço o cadastro desta tarefa
         Então devo ver a mensagem "Tarefa duplicada." ao tentar fazer o cadastro

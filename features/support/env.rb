@@ -2,6 +2,7 @@ require 'selenium-webdriver'
 require 'capybara'
 require 'capybara/cucumber'
 require 'site_prism'
+require 'faker'
 
 #Config capybara para firefox, chrome e chrome_headless
 Capybara.configure do |config|

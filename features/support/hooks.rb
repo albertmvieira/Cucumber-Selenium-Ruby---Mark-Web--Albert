@@ -6,6 +6,11 @@ Before do
     @login = LoginPage.new
     @tasks = TarefasPage.new
     @perfil = PerfilPage.new
+
+  #comando capybara para ajustar tamanho minimo da janela do browser caso necessário
+  #usar quando necessário ou software precisar se adequar ao padrão de tela especifico
+  #page.current_window.resize_to(1280, 800)
+
 end
 
 Before('@auth') do
