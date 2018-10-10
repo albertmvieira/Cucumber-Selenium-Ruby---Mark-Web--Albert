@@ -3,12 +3,15 @@ Dado("que eu tenho uma tarefa com os atributos:") do |table|
     #Retirado o faker e fazendo apagar a tarefa pela API - assim não precisa cadastrar com faker
     #@tarefa['titulo'] = @tarefa['titulo'] + ' ' + Faker::Lorem.characters(10) #concatenando informações, prática muito ruim  que não é muito utilizada. A mais utilizada é com interpolação de strings
     #Usando interpolação de strings necessário colocar entre chaves e utilizar o hashtag antes
-    @tarefa['titulo'] = "#{@tarefa['titulo']} - #{Faker::Lorem.characters(10)}"
-    puts @tarefa #imprimindo tarefa para ver como foi montado (Chave e valor)
+    #@tarefa['titulo'] = "#{@tarefa['titulo']} - #{Faker::Lorem.characters(10)}"
+    #puts @tarefa #imprimindo tarefa para ver como foi montado (Chave e valor)
+
+    #Utilizando metodo criado para remover a tarefa pela API e não gerar sujeira na base --- após testes apagar o código acima
+    @helpers.remover_tarefa(@token, @tarefa['titulo'])
   end
   
   Dado("eu quero taguear esta tarefa com:") do |table|
-    @tags = table.hashes #Comando para montar um array (neste caso precisou pois precisamos inserir cada tag individualmente)
+    @tags = table.hashes #Comando para montar um array (neste caso precisou pois precisa inserir cada tag individualmente)
     puts @tags #imprimindo tags para ver como o array foi montado (primeira linha será o titulo)
   end
 
@@ -27,7 +30,7 @@ Dado("que eu tenho uma tarefa com os atributos:") do |table|
     expect(@tasks.itens.first).to have_content status_tarefa #valida a primeira posição do array, neste caso porque sabemos que sempre cadastra em primeiro
 
     @tasks.busca(@tarefa['titulo'])
-    puts @tasks.itens.size #pegar o tamanho da variavel itens (array criado com a tabela de tasks)
+    @tasks.itens.size #pegar o tamanho da variavel itens (array criado com a tabela de tasks)
 
     expect(@tasks.itens.size).to eql 1 #valida que esteja exibindo apenas uma task com este titulo, após fazer a busca na tela
   end                                                                       
@@ -39,7 +42,7 @@ Dado("que eu tenho uma tarefa com os atributos:") do |table|
   # --------------- --Remover Tarefas --------------------------------------
 
   Dado("que eu tenho uma tarefa cadastrada") do
-    #variavel tarefa_para_remover recebe titulo e data, virando um hasd do ruby (array)
+    #variavel tarefa_para_remover recebe titulo e data, virando um hash do ruby (array)
     @tarefa_para_remover = {
       'titulo' => "Tarefa muito legal para remover - #{Faker::Lorem.characters(10)}",
       'data' => '01/12/2018'
@@ -82,12 +85,10 @@ Dado("que eu tenho uma tarefa com os atributos:") do |table|
     #expect(@tasks.conteudo_pagina).to have_content 'Hmm... nenhuma tarefa encontrada :('
 
     #validando percorrendo a lista na tela
+    #comando Rspec not_to
+    #comando capybara have_content
     @tasks.wait_for_itens
     expect(@tasks.itens).not_to have_content @tarefa_para_remover['titulo']
-
-    #com selenium puro
-    #resultado = @tasks.itens.include?(@tarefa_para_remover['titulo'])
-    #expect(resultado).to be false
   end
 
   Então("esta tarefa permanece cadastrada na lista") do

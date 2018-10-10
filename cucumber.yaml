@@ -1,0 +1,17 @@
+---
+#Arquivo yaml é para configurações do cucumber, Todo arquivo yaml começa com ---
+
+#Configuração para execução padrão do cucumber (com geração de relatórios)
+default: --format pretty -p html -p chrome
+html: --format html --out=logs/features.html
+
+#Tipo de saída relatório cucumber
+# -- format pretty - saída do BDD no terminal e HTML
+# -- format progress - saída resumida no terminal
+
+# configuração para setar o browser de acordo com o parametro
+# A variavel Browser recebe o valor de acordo com o que for enviado
+chrome: BROWSER=chrome
+chrome_headless: BROWSER=chrome_headless
+headless: HEADLESS=phantomjs
+internet_explorer: Internet=internet_explorer

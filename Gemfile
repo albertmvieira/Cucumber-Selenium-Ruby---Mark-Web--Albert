@@ -2,6 +2,7 @@
 
 source "https://rubygems.org"
 
+#Gems utilizadas
 gem "rspec"
 gem "cucumber"
 gem "selenium-webdriver"

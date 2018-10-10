@@ -18,7 +18,7 @@ Funcionalidade: Login
         # precisamos resolver isso
 
         Quando faço login com "<email>" e "<senha>"
-        Então não sou autenticado
+        Então não sou autenticado 
         Então devo ver a mensagem "<alerta>"
 
         Exemplos:

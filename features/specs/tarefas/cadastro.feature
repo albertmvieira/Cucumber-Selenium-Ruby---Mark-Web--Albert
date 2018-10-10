@@ -2,7 +2,7 @@
 
 Funcionalidade: Cadastrar tarefas
     Para que eu possa organizar minhas atividades
-    Sendo um usuário organizado
+    Sendo um usuário organizado 
     Posso cadastrar novas tarefas
 
     @nova_task @auth @logout @smoke

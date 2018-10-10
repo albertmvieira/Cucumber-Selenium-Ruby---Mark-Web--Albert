@@ -54,12 +54,12 @@ class TarefasPage < SitePrism::Page
         botao_busca.click
     end
 
-    #metodo para remover a primeira tarefa
+    #remover a primeira tarefa
     def apaga_primeiro_item
         @tasks.itens.first.find('#delete-button').click
     end
 
-    #metodo para remover tarefa por nome
+    #remover tarefa por nome
     def apagar_por_titulo(titulo)
         itens.each do |linha|
             if linha.text.include?(titulo)

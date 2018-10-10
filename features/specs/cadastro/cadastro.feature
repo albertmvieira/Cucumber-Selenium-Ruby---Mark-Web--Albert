@@ -5,20 +5,20 @@ Funcionalidade: Cadastro
 	Posso fazer meu cadastro no sistema
 	Para poder gerenciar as minhas tarefas
 
-    @smoke @cadastro
+    @smoke @cadastro @logout
 	Cenário: Cadastro simplificado
 
         Dado que eu acessei a página de cadastro
         E possuo os seguintes dados:
             | Nome  | Albert            |
-            | Email | albert@rerun.io   |
+            | Email | albert@rerun.br   |
             | Senha | 123456            |
         Quando faço o meu cadastro
         Então sou redirecionado para o meu painel de tarefas
 
     #Outline (Este cenário é o outline em inglês - para poder usar uma lista de massa de teste)
     @tentativa_cadastro
-    Esquema do Cenario: Tentativa de cadastro
+    Esquema do Cenario: Tentativa de cadastro 
      
         Dado que eu acessei a página de cadastro
         E possuo os seguintes dados:

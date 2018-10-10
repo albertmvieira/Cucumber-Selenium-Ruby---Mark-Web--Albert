@@ -3,7 +3,7 @@
 Funcionalidade: Remover tarefa
     Para que eu possa organizar minhas atividades
     Sendo um usuário cadastrado
-    Posso excluir uma tarefa indesejada
+    Posso excluir uma tarefa indesejada 
 
     @auth @remover @logout @smoke
     Cenario: Remover uma tarefa indesejada

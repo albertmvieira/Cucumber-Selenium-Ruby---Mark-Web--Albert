@@ -14,7 +14,6 @@ class LoginPage < SitePrism::Page
     #button[id^=btnLogin] ^ = começa com
     #button[id$=btnLogin] $ = termina com
 
-    #metodo encapsulando a ação de logar recebendo email e senha
     def logar(email, senha)
         input_email.set email
         input_senha.set senha

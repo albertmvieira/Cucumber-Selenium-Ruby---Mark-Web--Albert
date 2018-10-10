@@ -1,15 +1,12 @@
 Quando("faço login com {string} e {string}") do |email, senha|
     
-    #Criado variavel de instância para guardar o valor de email
     @email = email
-
-    @login.load #carrega a url setada na classe
+    @login.load #carrega a url setada na classe 
     @login.logar(email, senha)
-    
 end
   
 Então("sou autenticado com sucesso") do
-    #Após a criação da section foi alterado pois agora @tasks herda de da nav e consegue enxergar seus elementos
+    #Após a criação da section foi alterado pois agora @tasks herda da nav e consegue enxergar seus elementos
     #expect(@nav.menu_usuario.text).to eql @email         #------ antes da criação da section
     expect(@tasks.nav.menu_usuario.text).to eql @email
 end

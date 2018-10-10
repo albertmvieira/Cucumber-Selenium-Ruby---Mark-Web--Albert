@@ -1,1 +1,3 @@
 [0825/145407.454:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[1002/110226.517:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
+[1002/110226.546:ERROR:exception_snapshot_win.cc(88)] thread ID 11820 not found in process
