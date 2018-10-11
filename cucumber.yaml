@@ -1,5 +1,4 @@
 ---
-#Arquivo yaml é para configurações do cucumber, Todo arquivo yaml começa com ---
 
 #Configuração para execução padrão do cucumber (com geração de relatórios)
 default: --format pretty -p html -p chrome
